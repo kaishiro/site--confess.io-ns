@@ -1,0 +1,49 @@
+$color-anger: #E85533
+$color-contempt: #EFCF24 
+$color-disgust: #67D866
+$color-fear: #C785B3
+$color-happiness: #F7A116
+$color-sadness: #5287A7
+$color-surprise: #ABDAC6
+
+.header
+  border-top: 10px solid #CCC
+
+.faces
+  width: 280px
+  margin: .5em auto
+
+.face
+  float: left
+  svg
+    width: 40px
+  svg path
+    transition: fill .2s
+  &.face--anger
+    &:hover
+      svg path
+        fill: $color-anger
+  &.face--contempt
+    &:hover
+      svg path
+        fill: $color-contempt
+  &.face--disgust
+    &:hover
+      svg path
+        fill: $color-disgust
+  &.face--fear
+    &:hover
+      svg path
+        fill: $color-fear
+  &.face--happiness
+    &:hover
+      svg path
+        fill: $color-happiness
+  &.face--sadness
+    &:hover
+      svg path
+        fill: $color-sadness
+  &.face--surprise
+    &:hover
+      svg path
+        fill: $color-surprise
