@@ -6,8 +6,32 @@ $color-happiness: #F7A116
 $color-sadness: #5287A7
 $color-surprise: #ABDAC6
 
+.page
+  &.page--anger
+    .header
+      border-color: $color-anger
+  &.page--contempt
+    .header
+      border-color: $color-contempt
+  &.page--disgust
+    .header
+      border-color: $color-disgust
+  &.page--fear
+    .header
+      border-color: $color-fear
+  &.page--happiness
+    .header
+      border-color: $color-happiness
+  &.page--sadness
+    .header
+      border-color: $color-sadness
+  &.page--surprise
+    .header
+      border-color: $color-surprise
+
 .header
   border-top: 10px solid #CCC
+  transition: all .2s
 
 .faces
   width: 280px

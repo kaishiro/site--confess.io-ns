@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function() {
+  $(".face").on("mouseover", function(){
+    verb = $(this).data('verb');
+    $("body").attr('class', 'page page--' + verb);
+  });
+});
