@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  token: MyString
+  verb: MyString
+  body: MyText
+  image: MyString
+  ip: MyString
+  country: MyString
+
+two:
+  token: MyString
+  verb: MyString
+  body: MyText
+  image: MyString
+  ip: MyString
+  country: MyString
