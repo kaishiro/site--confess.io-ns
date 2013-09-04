@@ -19,4 +19,7 @@ $(function() {
     verb = $(this).data('verb');
     $("body").attr('class', 'page page--' + verb);
   });
+  $(".face").on("mouseout", function(){
+    $("body").attr('class', 'page');
+  });
 });
