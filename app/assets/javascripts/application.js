@@ -15,11 +15,47 @@
 //= require turbolinks
 //= require_tree .
 $(function() {
+
   $(".face").on("mouseover", function(){
-    verb = $(this).data('verb');
-    $("body").attr('class', 'page page--' + verb);
+    if ($("body").hasClass("active-form")) {
+    }
+    else {
+      verb = $(this).data('verb');
+      $("body").attr('class', 'page page--' + verb);
+    }
   });
+
   $(".face").on("mouseout", function(){
-    $("body").attr('class', 'page');
+    if ($("body").hasClass("active-form")) {
+    }
+    else {
+      $("body").attr('class', 'page');
+    }
   });
+
+  $(".face").on("click", function(){
+    verb = $(this).data('verb');
+    verbOld = $("body").data('verb');
+    if ($("body").hasClass("active-form")) {
+      if (verb == verbOld) {
+        $("body").attr('class', 'page page--' + verb);
+        $(this).removeClass('face--active');
+      }
+      else {
+        $("body").attr('class', 'page page--' + verb + ' active-form');
+        $("body").data('verb', verb);
+        $("body").attr('data-verb', verb);
+        $(".face").removeClass('face--active');
+        $(this).addClass('face--active');
+      }
+    }
+    else {
+      $("body").attr('class', 'page page--' + verb + ' active-form');
+      $("body").data('verb', verb);
+      $("body").attr('data-verb', verb);
+      $(".face").removeClass('face--active');
+      $(this).addClass('face--active');
+    }
+  });
+
 });

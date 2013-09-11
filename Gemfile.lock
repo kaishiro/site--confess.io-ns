@@ -27,6 +27,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.13)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -52,6 +55,9 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.7.9)
+    neat (1.4.0)
+      bourbon (>= 2.1)
+      sass (>= 3.2)
     pg (0.16.0)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -117,9 +123,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  neat
   pg
   rails (= 4.0.0)
   rails_12factor

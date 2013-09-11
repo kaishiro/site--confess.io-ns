@@ -10,65 +10,173 @@ $color-surprise: #ABDAC6
   &.page--anger
     .header
       border-color: $color-anger
+    .form--post
+      background: $color-anger
+      .form__triangle
+        @include triangle(50px, $color-anger, up) 
+        left: 48px
+      .form__submit
+        color: $color-anger
   &.page--contempt
     .header
       border-color: $color-contempt
+    .form--post
+      background: $color-contempt
+      .form__triangle
+        @include triangle(50px, $color-contempt, up) 
+        left: 288px
+      .form__submit
+        color: $color-contempt
   &.page--disgust
     .header
       border-color: $color-disgust
+    .form--post
+      background: $color-disgust
+      .form__triangle
+        @include triangle(50px, $color-disgust, up) 
+        left: 208px
+      .form__submit
+        color: $color-disgust
   &.page--fear
     .header
       border-color: $color-fear
+    .form--post
+      background: $color-fear
+      .form__triangle
+        @include triangle(50px, $color-fear, up) 
+        left: 88px
+      .form__submit
+        color: $color-fear
   &.page--happiness
     .header
       border-color: $color-happiness
+    .form--post
+      background: $color-happiness
+      .form__triangle
+        @include triangle(50px, $color-happiness, up) 
+        left: 248px
+      .form__submit
+        color: $color-happiness
   &.page--sadness
     .header
       border-color: $color-sadness
+    .form--post
+      background: $color-sadness
+      .form__triangle
+        @include triangle(50px, $color-sadness, up) 
+        left: 128px
+      .form__submit
+        color: $color-sadness
   &.page--surprise
     .header
       border-color: $color-surprise
+    .form--post
+      background: $color-surprise
+      .form__triangle
+        @include triangle(50px, $color-surprise, up) 
+        left: 168px
+      .form__submit
+        color: $color-surprise
 
 .header
   border-top: 10px solid #CCC
-  transition: all .2s
+  @include transition (border-color, .2s)
+  overflow: hidden
+  position: relative
+  z-index: 1
+  background: white
 
 .faces
   width: 280px
   margin: .5em auto
+  height: 30px
 
 .face
   float: left
-  width: 30px
+  width: 40px
   height: 30px
   padding: 0 5px
   svg path
-    transition: fill .2s
+    @include transition (fill, .2s)
   &.face--anger
-    &:hover
+    &:hover, &.face--active
       svg path
         fill: $color-anger
   &.face--contempt
-    &:hover
+    &:hover, &.face--active
       svg path
         fill: $color-contempt
   &.face--disgust
-    &:hover
+    &:hover, &.face--active
       svg path
         fill: $color-disgust
   &.face--fear
-    &:hover
+    &:hover, &.face--active
       svg path
         fill: $color-fear
   &.face--happiness
-    &:hover
+    &:hover, &.face--active
       svg path
         fill: $color-happiness
   &.face--sadness
-    &:hover
+    &:hover, &.face--active
       svg path
         fill: $color-sadness
   &.face--surprise
-    &:hover
+    &:hover, &.face--active
       svg path
         fill: $color-surprise
+
+.active-form
+  .form--post
+    margin-top: 0
+    @media screen and (min-width: 768px)
+      margin-top: 1.75em
+
+.form--post
+  @include transition (background-color .2s, margin-top 1s $ease-out-cubic)
+  position: relative
+  opacity: .8
+  @include clearfix
+  padding: 1em
+  margin-top: -209px
+  .form__triangle
+    display: none
+    @media screen and (min-width: 768px)
+      @include transition (border-color .2s, left .5s $ease-out-cubic)
+      display: block
+  .form__body
+    float: left
+    width: 100%
+    border: none
+    margin: 0
+    padding: 0
+    height: 10em
+
+  .form__submit
+    @include transition (color .2s)
+    float: right
+    border: none
+    background: white
+    color: white
+    font-weight: bold
+    font-size: 16px
+    padding: .25em 2em
+    margin: 1em 0 0 0
+
+@media screen and (min-width: 768px)
+
+  .form--post
+    position: absolute
+    width: 24em
+    left: 50%
+    margin-left: -12em
+    
+    .form__triangle
+      position: absolute
+      top: -49px
+      left: 0
+html
+  background: #eee
+.body
+  position: relative
