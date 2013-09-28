@@ -40,6 +40,7 @@ $(function() {
       if (verb == verbOld) {
         $("body").attr('class', 'page page--' + verb);
         $(this).removeClass('face--active');
+        $(".form__verb").val("");
       }
       else {
         $("body").attr('class', 'page page--' + verb + ' active-form');
@@ -47,6 +48,7 @@ $(function() {
         $("body").attr('data-verb', verb);
         $(".face").removeClass('face--active');
         $(this).addClass('face--active');
+        $(".form__verb").val(verb);
       }
     }
     else {
@@ -55,7 +57,9 @@ $(function() {
       $("body").attr('data-verb', verb);
       $(".face").removeClass('face--active');
       $(this).addClass('face--active');
+      $(".form__verb").val(verb);
     }
   });
+
 
 });
