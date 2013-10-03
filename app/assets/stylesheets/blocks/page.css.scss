@@ -1,0 +1,109 @@
+@import "../partials/base";
+
+.page {
+  &.page--anger {
+    .header {
+      border-color: $color-anger;
+    }
+    .form--post {
+      background: $color-anger;
+      .form__triangle {
+        @include triangle(50px, $color-anger, up);
+        left: 48px;
+      }
+      .form__submit {
+        color: $color-anger;
+      }
+    }
+  }
+  &.page--contempt {
+    .header {
+      border-color: $color-contempt;
+    }
+    .form--post {
+      background: $color-contempt;
+      .form__triangle {
+        @include triangle(50px, $color-contempt, up);
+        left: 288px;
+      }
+      .form__submit {
+        color: $color-contempt;
+      }
+    }
+  }
+  &.page--disgust {
+    .header {
+      border-color: $color-disgust;
+    }
+    .form--post {
+      background: $color-disgust;
+      .form__triangle {
+        @include triangle(50px, $color-disgust, up);
+        left: 208px;
+      }
+      .form__submit {
+        color: $color-disgust;
+      }
+    }
+  }
+  &.page--fear {
+    .header {
+      border-color: $color-fear;
+    }
+    .form--post {
+      background: $color-fear;
+      .form__triangle {
+        @include triangle(50px, $color-fear, up);
+        left: 88px;
+      }
+      .form__submit {
+        color: $color-fear;
+      }
+    }
+  }
+  &.page--happiness {
+    .header {
+      border-color: $color-happiness;
+    }
+    .form--post {
+      background: $color-happiness;
+      .form__triangle {
+        @include triangle(50px, $color-happiness, up);
+        left: 248px;
+      }
+      .form__submit {
+        color: $color-happiness;
+      }
+    }
+  }
+  &.page--sadness {
+    .header {
+      border-color: $color-sadness;
+    }
+    .form--post {
+      background: $color-sadness;
+      .form__triangle {
+        @include triangle(50px, $color-sadness, up);
+        left: 128px;
+      }
+      .form__submit {
+        color: $color-sadness;
+      }
+    }
+  }
+  &.page--surprise {
+    .header {
+      border-color: $color-surprise;
+    }
+    .form--post {
+      background: $color-surprise;
+      .form__triangle {
+        @include triangle(50px, $color-surprise, up);
+        left: 168px;
+      }
+      .form__submit {
+        color: $color-surprise;
+      }
+    }
+  }
+}

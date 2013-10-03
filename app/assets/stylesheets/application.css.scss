@@ -10,7 +10,14 @@
  *
  *= require_self
  */
-@import "reset"
-@import "bourbon"
-@import "neat"
-@import "header" 
+@import "partials/base";
+
+@import "partials/reset";
+
+@import "blocks/active-form";
+@import "blocks/form";
+@import "blocks/page";
+@import "blocks/faces";
+@import "blocks/face";
+@import "blocks/main";
+@import "blocks/header";

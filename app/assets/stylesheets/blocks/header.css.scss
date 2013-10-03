@@ -1,0 +1,10 @@
+@import "../partials/base";
+
+.header {
+  border-top: 10px solid #cccccc;
+  @include transition(border-color, 0.2s);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: white;
+}

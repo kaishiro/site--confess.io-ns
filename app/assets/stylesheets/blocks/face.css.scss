@@ -1,0 +1,60 @@
+@import "../partials/base";
+
+.face {
+  float: left;
+  width: 40px;
+  height: 30px;
+  padding: 0 5px;
+  svg path {
+    @include transition(fill, 0.2s);
+  }
+  &.face--anger {
+    &:hover, &.face--active {
+      svg path {
+        fill: $color-anger;
+      }
+    }
+  }
+  &.face--contempt {
+    &:hover, &.face--active {
+      svg path {
+        fill: $color-contempt;
+      }
+    }
+  }
+  &.face--disgust {
+    &:hover, &.face--active {
+      svg path {
+        fill: $color-disgust;
+      }
+    }
+  }
+  &.face--fear {
+    &:hover, &.face--active {
+      svg path {
+        fill: $color-fear;
+      }
+    }
+  }
+  &.face--happiness {
+    &:hover, &.face--active {
+      svg path {
+        fill: $color-happiness;
+      }
+    }
+  }
+  &.face--sadness {
+    &:hover, &.face--active {
+      svg path {
+        fill: $color-sadness;
+      }
+    }
+  }
+  &.face--surprise {
+    &:hover, &.face--active {
+      svg path {
+        fill: $color-surprise;
+      }
+    }
+  }
+}

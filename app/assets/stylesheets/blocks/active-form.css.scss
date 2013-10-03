@@ -1,0 +1,10 @@
+@import "../partials/base";
+
+.active-form {
+  .form--post {
+    margin-top: 0;
+    @media screen and (min-width: 768px) {
+      margin-top: 1.75em;
+    }
+  }
+}
