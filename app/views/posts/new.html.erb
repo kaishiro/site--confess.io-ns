@@ -3,7 +3,7 @@
     <%= form_for :post, url: posts_path do |f| %>
       <div class="form__triangle"></div>
       <%= f.hidden_field :verb, :class => "form__verb" %>
-      <%= f.text_area :body, :class => "form__body", :placeholder => "yo" %>
+      <%= f.text_area :body, :class => "form__body", :placeholder => "Tell us what you're thinking..." %>
       <%= f.submit "Post", :class => "form__submit" %>
     <% end %>
   </div>
