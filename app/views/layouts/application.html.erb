@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=false">
+    <meta name="description" content="">
+
+    <title>Tribes</title>
+
+    <%= stylesheet_link_tag 'application.css', :media => 'all' %>
+    <%= javascript_include_tag 'application.js' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body class="page" data-verb="">
+    <header class="header">
+      <div class="faces">
+        <%= render "partials/faces/anger" %>
+        <%= render "partials/faces/fear" %>
+        <%= render "partials/faces/sadness" %>
+        <%= render "partials/faces/surprise" %>
+        <%= render "partials/faces/disgust" %>
+        <%= render "partials/faces/happiness" %>
+        <%= render "partials/faces/contempt" %>
+      </div>
+    </header>
+    <%== yield %>
+  </body>
+</html>
