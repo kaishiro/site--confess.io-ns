@@ -16,50 +16,148 @@
 //= require_tree .
 $(function() {
 
+  var emotions = ["anger","contempt","disgust","fear","happiness","sadness","surprise"];
+
+  function changePageEmotion(emotion) {
+    // Remove existing emotions
+    $(".page").removeClass(function() {
+      var classes = "";
+
+      $.each(emotions, function( index, value ) {
+        classes += "page--" + value + " ";
+      });
+
+      return classes;
+    });
+
+    // Add current emotion
+    if (emotion) {
+      $(".page").addClass("page--" + emotion);
+      $(".page").data('verb', emotion);
+      $(".page").attr('data-verb', emotion);
+    }
+  }
+
+  function changeHeaderEmotion(emotion) {
+    // Remove existing emotions
+    $(".header").removeClass(function() {
+      var classes = "";
+
+      $.each(emotions, function( index, value ) {
+        classes += "header--" + value + " ";
+      });
+
+      return classes;
+    });
+
+    // Add current emotion
+    if (emotion) {
+      $(".header").addClass("header--" + emotion);
+    }
+  }
+  
+  function changeFormEmotion(emotion, placeholder) {
+    // Remove existing emotions
+    $(".form--post").removeClass(function() {
+      var classes = "";
+
+      $.each(emotions, function( index, value ) {
+        classes += "form--" + value + " ";
+      });
+
+      return classes;
+    });
+
+    // Add current emotion
+    if (emotion) {
+      $(".form--post").addClass("form--" + emotion);
+      $(".form__verb").val(emotion);
+      $(".form__body").attr("placeholder", placeholder);
+    }
+  }
+
+  function activateOverlay() {
+    $(".overlay").addClass("overlay--active");
+  }
+  
+  function deactivateOverlay() {
+    $(".overlay").removeClass("overlay--active");
+  }
+
+  function activateForm() {
+    $(".page").addClass("active-form");
+  }
+  
+  function deactivateForm() {
+    $(".page").removeClass("active-form");
+  }
+ 
+  function changeFace() {
+    $(".face").removeClass('face--active');
+    $(this).addClass('face--active');
+  }
+
   $(".face").on("mouseover", function(){
-    if ($("body").hasClass("active-form")) {
+    var formIsActive = $(".page.active-form").length > 0; 
+
+    if (formIsActive) {
     }
     else {
-      verb = $(this).data('verb');
-      $("body").attr('class', 'page page--' + verb);
+      var emotion = $(this).data('verb');
+
+      changePageEmotion(emotion);
+      changeHeaderEmotion(emotion);
     }
   });
 
   $(".face").on("mouseout", function(){
-    if ($("body").hasClass("active-form")) {
+    var formIsActive = $(".page.active-form").length > 0; 
+
+    if (formIsActive) {
     }
     else {
-      $("body").attr('class', 'page');
+      changePageEmotion();
+      changeHeaderEmotion();
     }
   });
 
   $(".face").on("click", function(){
-    verb = $(this).data('verb');
-    verbOld = $("body").data('verb');
-    if ($("body").hasClass("active-form")) {
-      if (verb == verbOld) {
-        $("body").attr('class', 'page page--' + verb);
+    var formIsActive = $(".page.active-form").length > 0; 
+    var emotion = $(this).data('verb');
+    var emotionOld = $(".page").data('verb');
+    var placeholder = $(this).data('placeholder');
+
+    if (formIsActive) {
+      if (emotion == emotionOld) {
         $(this).removeClass('face--active');
-        $(".form__verb").val("");
+        deactivateOverlay();
+        deactivateForm();
       }
       else {
-        $("body").attr('class', 'page page--' + verb + ' active-form');
-        $("body").data('verb', verb);
-        $("body").attr('data-verb', verb);
-        $(".face").removeClass('face--active');
-        $(this).addClass('face--active');
-        $(".form__verb").val(verb);
+        changePageEmotion(emotion);
+        changeHeaderEmotion(emotion);
+        changeFormEmotion(emotion, placeholder);
+        activateOverlay();
+        changeFace();
       }
     }
     else {
-      $("body").attr('class', 'page page--' + verb + ' active-form');
-      $("body").data('verb', verb);
-      $("body").attr('data-verb', verb);
-      $(".face").removeClass('face--active');
-      $(this).addClass('face--active');
-      $(".form__verb").val(verb);
+      changePageEmotion(emotion);
+      changeHeaderEmotion(emotion);
+      changeFormEmotion(emotion, placeholder);
+      activateForm();
+      activateOverlay();
+      changeFace();
     }
   });
 
+  
+  $(".overlay").on("click", function(){
+    changePageEmotion();
+    changeHeaderEmotion();
+    changeFormEmotion();
+    deactivateForm();
+    $(".face").removeClass("face--active");
+  });
 
 });
