@@ -10,13 +10,15 @@
  *
  *= require_self
  */
-@import "partials/base";
+@import "depot/base";
 
-@import "partials/reset";
+@import "core/reset";
+@import "core/globals";
+@import "core/forms";
 
+@import "blocks/overlay";
 @import "blocks/active-form";
 @import "blocks/form";
-@import "blocks/page";
 @import "blocks/faces";
 @import "blocks/face";
 @import "blocks/main";
