@@ -1,0 +1,25 @@
+$color-anger: #E85533;
+$color-contempt: #EFCF24;
+$color-disgust: #67D866;
+$color-fear: #C785B3;
+$color-happiness: #F7A116;
+$color-sadness: #5287A7;
+$color-surprise: #ABDAC6;
+
+$color-grey-medium: #CCC;
+
+$layer-top:100;
+$layer-middle-top:75;
+$layer-middle:50;
+$layer-middle-bottom:25;
+$layer-bottom:1;
+
+$emotions: (
+  anger $color-anger 48px, 
+  contempt $color-contempt 288px,
+  disgust $color-disgust 208px,
+  fear $color-fear 88px,
+  happiness $color-happiness 248px,
+  sadness $color-sadness 128px,
+  surprise $color-surprise 168px 
+);

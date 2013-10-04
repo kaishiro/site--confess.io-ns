@@ -1,0 +1,91 @@
+%family-gotham {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; 
+  @extend %style-normal;
+}
+
+%family-gotham-condensed {
+  font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+  @extend %style-normal;
+}
+
+// Font Weights
+%weight-300 {
+  font-weight: 300;
+}
+
+%weight-400 {
+  font-weight: 400;
+}
+
+%weight-500 {
+  font-weight: 500;
+}
+
+%weight-600 {
+  font-weight: 600;
+}
+
+%weight-700 {
+  font-weight: 700;
+}
+
+// Font Styles
+%style-normal {
+  font-style: normal;
+}
+
+%style-italic {
+  font-style: italic;
+}
+
+// Font Placeholders
+%gotham-light {
+  @extend %family-gotham;
+  @extend %weight-300;
+}
+
+%gotham-light-italic {
+  @extend %gotham-light;
+  @extend %style-italic;
+}
+
+%gotham-book {
+  @extend %family-gotham;
+  @extend %weight-400;
+}
+
+%gotham-book-italic {
+  @extend %gotham-book;
+  @extend %style-italic;
+}
+
+%gotham-medium {
+  @extend %family-gotham;
+  @extend %weight-500;
+}
+
+%gotham-medium-italic {
+  @extend %gotham-medium;
+  @extend %style-italic;
+}
+
+%gotham-bold {
+  @extend %family-gotham;
+  @extend %weight-700;
+}
+
+%gotham-bold-italic {
+  @extend %gotham-bold;
+  @extend %style-italic;
+}
+
+%gotham-condensed-bold {
+  @extend %family-gotham-condensed;
+  @extend %weight-600;
+}
+
+%gotham-condensed-bold-italic {
+  @extend %gotham-condensed-bold;
+  @extend %style-italic;
+}
+
