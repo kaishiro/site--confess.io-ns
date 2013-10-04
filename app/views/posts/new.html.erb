@@ -1,7 +1,8 @@
-<div class="body">
+<main class="main">
   <div class="form form--post" data-verb="">
     <%= form_for :post, url: posts_path do |f| %>
       <div class="form__triangle"></div>
+      <div class="form__bg"></div>
       <%= f.hidden_field :verb, :class => "form__verb" %>
       <%= f.text_area :body, :class => "form__body", :placeholder => "Tell us what you're thinking..." %>
       <%= f.submit "Post", :class => "form__submit" %>
@@ -15,4 +16,4 @@
       </div>
     <% end %>
   </div>
-</div>
+</main>
