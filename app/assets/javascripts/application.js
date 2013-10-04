@@ -19,8 +19,9 @@ $(function() {
 
 
   $('.posts').isotope({
-    containerClass: 'posts--isotope',
     itemSelector: '.post',
+    containerClass: 'posts--isotope',
+    itemClass: 'post--isotope',
     layoutMode: 'masonry'
   });
 
