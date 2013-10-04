@@ -6,10 +6,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=false">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
 
     <title>Tribes</title>
+
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6991832/789262/css/fonts.css" />
 
     <%= stylesheet_link_tag 'application.css', :media => 'all' %>
     <%= javascript_include_tag 'application.js' %>
@@ -28,5 +30,6 @@
       </div>
     </header>
     <%== yield %>
+    <div class="overlay"></div>
   </body>
 </html>
