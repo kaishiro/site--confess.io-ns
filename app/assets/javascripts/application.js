@@ -13,8 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.isotope.min
 //= require_tree .
 $(function() {
+
+
+  $('.posts').isotope({
+    containerClass: 'posts--isotope',
+    itemSelector: '.post',
+    layoutMode: 'masonry'
+  });
+
+
+
+
 
   var emotions = ["anger","contempt","disgust","fear","happiness","sadness","surprise"];
 
