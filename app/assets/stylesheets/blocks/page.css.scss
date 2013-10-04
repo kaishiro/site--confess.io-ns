@@ -1,4 +1,4 @@
-@import "../partials/base";
+@import "../depot/base";
 
 .page {
   &.page--anger {
@@ -6,7 +6,9 @@
       border-color: $color-anger;
     }
     .form--post {
-      background: $color-anger;
+      .form__bg {
+        background: $color-anger;
+      }
       .form__triangle {
         @include triangle(50px, $color-anger, up);
         left: 48px;
@@ -21,7 +23,9 @@
       border-color: $color-contempt;
     }
     .form--post {
-      background: $color-contempt;
+      .form__bg {
+        background: $color-contempt;
+      }
       .form__triangle {
         @include triangle(50px, $color-contempt, up);
         left: 288px;
@@ -36,7 +40,9 @@
       border-color: $color-disgust;
     }
     .form--post {
-      background: $color-disgust;
+      .form__bg {
+        background: $color-disgust;
+      }
       .form__triangle {
         @include triangle(50px, $color-disgust, up);
         left: 208px;
@@ -51,7 +57,9 @@
       border-color: $color-fear;
     }
     .form--post {
-      background: $color-fear;
+      .form__bg {
+        background: $color-fear;
+      }
       .form__triangle {
         @include triangle(50px, $color-fear, up);
         left: 88px;
@@ -66,7 +74,9 @@
       border-color: $color-happiness;
     }
     .form--post {
-      background: $color-happiness;
+      .form__bg {
+        background: $color-happiness;
+      }
       .form__triangle {
         @include triangle(50px, $color-happiness, up);
         left: 248px;
@@ -81,7 +91,9 @@
       border-color: $color-sadness;
     }
     .form--post {
-      background: $color-sadness;
+      .form__bg {
+        background: $color-sadness;
+      }
       .form__triangle {
         @include triangle(50px, $color-sadness, up);
         left: 128px;
@@ -96,7 +108,9 @@
       border-color: $color-surprise;
     }
     .form--post {
-      background: $color-surprise;
+      .form__bg {
+        background: $color-surprise;
+      }
       .form__triangle {
         @include triangle(50px, $color-surprise, up);
         left: 168px;
