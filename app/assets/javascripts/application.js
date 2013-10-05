@@ -22,6 +22,7 @@ $(function() {
     itemSelector: '.post',
     containerClass: 'posts--isotope',
     itemClass: 'post--isotope',
+    containerStyle: {position: 'relative'},
     layoutMode: 'masonry'
   });
 
@@ -110,7 +111,7 @@ $(function() {
     $(this).addClass('face--active');
   }
 
-  $(".face").on("mouseover", function(){
+  $(".face--normal").on("mouseover", function(){
     var formIsActive = $(".page.active-form").length > 0; 
 
     if (formIsActive) {
@@ -123,7 +124,7 @@ $(function() {
     }
   });
 
-  $(".face").on("mouseout", function(){
+  $(".face--normal").on("mouseout", function(){
     var formIsActive = $(".page.active-form").length > 0; 
 
     if (formIsActive) {
@@ -134,7 +135,7 @@ $(function() {
     }
   });
 
-  $(".face").on("click", function(){
+  $(".face--normal").on("click", function(){
     var formIsActive = $(".page.active-form").length > 0; 
     var emotion = $(this).data('verb');
     var emotionOld = $(".page").data('verb');
