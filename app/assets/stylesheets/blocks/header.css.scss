@@ -3,7 +3,7 @@
 .header {
   border-top: 10px solid #cccccc;
   @include transition(border-color, 0.2s);
-  overflow: hidden;
+  @include clearfix();
   position: relative;
   z-index: $layer-top;
   background: white;
