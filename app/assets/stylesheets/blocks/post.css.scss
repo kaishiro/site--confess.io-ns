@@ -1,5 +1,44 @@
 @import "../depot/base";
 
 .post {
- 
+  position:relative;
+  width:300px; 
+  background: #FFF;
+  margin-left:5px;
+  margin-right:5px;
+  margin-top:10px;
+  min-height:100px;
+  border:1px solid #CCC;
+  .post__triangle {
+    position:absolute;
+    top:0;
+    left:0;
+    @include triangle(60px, #CCC, up-left); 
+    border-right-width:100px;
+  }
+  .post__face {
+    position:absolute;
+    top:6px;
+    left:18px;
+    svg path {
+      fill: #FFF;
+    }
+  }
+  .post__body {
+    @extend %gotham-book;
+    font-size:12px;
+    position:relative;
+    top:65px;
+    padding:0 10px;
+  }
+  @each $emotion in $emotions {
+    $verb: nth($emotion, 1);
+    $color: nth($emotion, 2);
+
+    &.post--#{$verb} {
+      .post__triangle {
+        border-top-color: #{$color};
+      }
+    }
+  }
 }
