@@ -1,5 +1,38 @@
 @import "../depot/base";
 
 .posts {
- 
+  width:300px; 
+  margin:0 auto;
+  padding-top:36px;
+  @include clearfix();
+}
+
+@media screen and (min-width: 640px) {
+  .posts {
+    width:620px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .posts {
+    width:930px;
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .posts {
+    width:1240px;
+  }
+}
+
+@media screen and (min-width: 1570px) {
+  .posts {
+    width:1550px;
+  }
+}
+
+@media screen and (min-width: 1880px) {
+  .posts {
+    width:1860px;
+  }
 }
