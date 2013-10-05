@@ -1,7 +1,8 @@
 @import "../depot/base";
 
 .form--post {
-  position: relative;
+  width:100%;
+  position: absolute;
   @include clearfix;
   margin-top: -18em;
   padding: 1em;
