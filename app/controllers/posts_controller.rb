@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.all
+    @posts = Post.order('created_at DESC').all
     @post = Post.new
   end
 
