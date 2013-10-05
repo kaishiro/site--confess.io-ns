@@ -20,13 +20,13 @@
   <body class="page" data-verb="">
     <header class="header">
       <div class="faces">
-        <%= render "partials/faces/anger" %>
-        <%= render "partials/faces/fear" %>
-        <%= render "partials/faces/sadness" %>
-        <%= render "partials/faces/surprise" %>
-        <%= render "partials/faces/disgust" %>
-        <%= render "partials/faces/happiness" %>
-        <%= render "partials/faces/contempt" %>
+        <%= render :partial => 'partials/faces/anger', :locals => {:size => 'normal'} %>
+        <%= render :partial => 'partials/faces/fear', :locals => {:size => 'normal'} %>
+        <%= render :partial => 'partials/faces/sadness', :locals => {:size => 'normal'} %>
+        <%= render :partial => 'partials/faces/surprise', :locals => {:size => 'normal'} %>
+        <%= render :partial => 'partials/faces/disgust', :locals => {:size => 'normal'} %>
+        <%= render :partial => 'partials/faces/happiness', :locals => {:size => 'normal'} %>
+        <%= render :partial => 'partials/faces/contempt', :locals => {:size => 'normal'} %>
       </div>
     </header>
     <%== yield %>
