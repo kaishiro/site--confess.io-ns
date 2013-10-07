@@ -1,0 +1,38 @@
+.share {
+  .share__list {
+    float:left;
+  }
+  .share__item {
+    float:left;
+    &.share__item--report {
+      padding-left:5px;
+    }
+  }
+  .share__icon {
+    color:#999;
+    font-size:14px;
+    line-height:20px;
+    @include transition(color .1s ease-in);
+  }
+  .share__copy {
+    color:#999;
+    font-size:10px; 
+    @extend %gotham-book;
+    line-height:20px;
+    @include transition(color .1s ease-in);
+  }
+}
+
+
+@each $emotion in $emotions {
+  $verb: nth($emotion, 1);
+  $color: nth($emotion, 2);
+
+  .post--#{$verb} {
+    .share__link:hover {
+      .share__icon, .share__copy {
+        color: #{$color};
+      }
+    }
+  }
+}
