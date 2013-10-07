@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  token: MyString
+  emotion: MyString
+  body: MyText
+  ip: MyString
+  country: MyString
+  post_id: 
+
+two:
+  token: MyString
+  emotion: MyString
+  body: MyText
+  ip: MyString
+  country: MyString
+  post_id: 
