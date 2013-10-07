@@ -1,0 +1,24 @@
+.comments {
+  float:left;
+  clear:left;
+  padding:0 0 0 15px;
+  .comments__link {
+    @extend %gotham-book;
+    font-size:10px;
+    color:#999;
+    @include transition(color .1s ease-in);
+  }
+  .comments__count {
+  }
+}
+
+@each $emotion in $emotions {
+  $verb: nth($emotion, 1);
+  $color: nth($emotion, 2);
+
+  .post--#{$verb} {
+    .comments:hover .comments__link {
+      color: #{$color};
+    }
+  }
+}
