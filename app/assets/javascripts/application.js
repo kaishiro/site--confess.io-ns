@@ -90,12 +90,17 @@ $(function() {
     }
   }
 
-  function activateOverlay() {
-    $(".overlay").addClass("overlay--active");
+  function activateOverlay(visible) {
+    if (visible == 1) {
+      $(".overlay").addClass("overlay--active overlay--visible");
+    }
+    else {
+      $(".overlay").addClass("overlay--active");
+    }
   }
   
   function deactivateOverlay() {
-    $(".overlay").removeClass("overlay--active");
+    $(".overlay").removeClass("overlay--active overlay--visible");
   }
 
   function activateForm() {
@@ -171,7 +176,24 @@ $(function() {
     changeHeaderEmotion();
     changeFormEmotion();
     deactivateForm();
+    deactivateOverlay();
     $(".face").removeClass("face--active");
+    $('.feature').html("");
+  });
+
+  $(".comments").on("click", function(){
+    var clone = $(this).parent().clone(); 
+
+    activateOverlay(1);
+
+    clone.removeClass('post--isotope');
+
+    clone.addClass('post--featured');
+
+    clone.attr('style', '');
+
+    $('.feature').append(clone);
+
   });
 
 });
