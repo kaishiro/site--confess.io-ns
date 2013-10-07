@@ -1,0 +1,27 @@
+.vote {
+  color:#999;
+  display:inline-block;
+  .vote__icon {
+    float:left;
+    @include transition(color .1s ease-in);
+    font-size:20px;
+    line-height:20px;
+  }
+  .vote__count {
+    float:left;
+    @extend %gotham-book;
+    font-size:10px;
+    line-height:20px;
+  }
+}
+
+@each $emotion in $emotions {
+  $verb: nth($emotion, 1);
+  $color: nth($emotion, 2);
+
+  .post--#{$verb} {
+    .vote:hover .vote__icon, .vote--active .vote__icon {
+      color: #{$color};
+    }
+  }
+}
