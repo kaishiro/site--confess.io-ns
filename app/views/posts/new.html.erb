@@ -34,10 +34,54 @@
             <%= render :partial => 'partials/faces/contempt', :locals => {:size => 'small'} %>
           <% end %>
         </div>
+        <div class="post__voting">
+          <a class="vote vote--up" href="#" data-vote="1">
+            <span class="vote__icon icon-up-dir"></span>
+            <span class="vote__count">47</span>
+          </a>
+          <a class="vote vote--down" href="#" data-vote="2">
+            <span class="vote__icon icon-down-dir"></span>
+            <span class="vote__count">2416</span>
+          </a>
+        </div>
         <div class="post__body">
           <%= post.body %>
         </div>
-        <%= post.verb %>
+        <img class="post__image" src="http://placekitten.com/300/200" />
+        <div class="post__info">
+          <%= image_tag "flags_png/us.png", :class => "post__flag" %>
+          <span class="post__country">USA</span>
+          <span class="post__timestamp"><%= time_ago_in_words(post.created_at) %> ago</span>
+        </div>
+        <div class="post__share share">
+          <ul class="share__list">
+            <li class="share__item share__item--twitter">
+              <a class="share__link" href="#" target="_blank">
+                <span class="share__icon icon-twitter"></span>
+              </a>
+            </li>
+            <li class="share__item share__item--facebook">
+              <a class="share__link" href="#" target="_blank">
+                <span class="share__icon icon-facebook"></span>
+              </a>
+            </li>
+            <li class="share__item share__item--email">
+              <a class="share__link" href="#" target="_blank">
+                <span class="share__icon icon-email"></span>
+              </a>
+            </li>
+            <li class="share__item share__item--report">
+              <a class="share__link" href="#" target="_blank">
+                <span class="share__copy">Report</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="post__comments comments">
+          <a class="comments__link" href="#">
+            Comments <span class="comments__count">(231)</span>
+          </a>
+        </div>
       </div>
 
     <% end %>
