@@ -78,9 +78,25 @@
           </ul>
         </div>
         <div class="post__comments comments">
-          <a class="comments__link" href="#">
+          <div class="comments__link">
             Comments <span class="comments__count">(231)</span>
-          </a>
+          </div>
+          <div class="comments__form form form--comment">
+            <%= form_for :post, url: posts_path do |f| %>
+              <%= f.hidden_field :verb, :class => "form__verb" %>
+              <%= f.text_area :body, :class => "form__body", :placeholder => "Comment" %>
+              <div class="form__faces">
+                <%= render :partial => 'partials/faces/anger', :locals => {:size => 'normal'} %>
+                <%= render :partial => 'partials/faces/fear', :locals => {:size => 'normal'} %>
+                <%= render :partial => 'partials/faces/sadness', :locals => {:size => 'normal'} %>
+                <%= render :partial => 'partials/faces/surprise', :locals => {:size => 'normal'} %>
+                <%= render :partial => 'partials/faces/disgust', :locals => {:size => 'normal'} %>
+                <%= render :partial => 'partials/faces/happiness', :locals => {:size => 'normal'} %>
+                <%= render :partial => 'partials/faces/contempt', :locals => {:size => 'normal'} %>
+              </div>
+              <%= f.submit "Post", :class => "form__submit" %>
+            <% end %>
+          </div>
         </div>
       </div>
 
