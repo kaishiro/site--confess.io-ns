@@ -76,6 +76,38 @@
 
 }
 
+.form--comment {
+  float:left;
+  width:100%;
+  display:none;
+  .form__body {
+    float:left;
+    border:1px solid #CCC;
+    width:100%;
+    height: 100px;
+  }
+  .form__faces {
+    float:left;
+    .face {
+      padding:2px;
+      width:30px;
+    }
+  }
+  .form__submit {
+    @include transition(color 0.2s);
+    position:relative;
+    float: right;
+    border: none;
+    background: white;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0.25em 2em;
+    margin: 1em 0 0 0;
+    @extend %gotham-bold;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .form--post {
     position: absolute;

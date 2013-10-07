@@ -1,6 +1,7 @@
 @import "../depot/base";
 
 .post {
+  @include clearfix();
   @include transition(all .25s $ease-out-cubic);
   position:relative;
   width:300px; 

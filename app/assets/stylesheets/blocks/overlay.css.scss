@@ -1,14 +1,18 @@
 .overlay {
   display:none;
   @include opacity(0);
+  background:#333;
   position:fixed;
   top:0;
   left:0;
   height:100%;
   width:100%;
-  background:red;
   z-index:$layer-middle;
+  @include transition(opacity .25s ease-in); 
   &.overlay--active {
     display:block;
+  }
+  &.overlay--visible {
+    @include opacity(.5);
   }
 }
