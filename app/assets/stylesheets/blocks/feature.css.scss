@@ -1,7 +1,8 @@
 .feature {
-  position:fixed;
+  position:absolute;
   top:100px;
   left:50%;
   margin-left:-150px;
+  padding-bottom:10em;
   z-index:1000;
 }

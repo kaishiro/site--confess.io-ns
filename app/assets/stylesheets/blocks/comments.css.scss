@@ -4,12 +4,90 @@
   clear:left;
   padding:10px 15px 0 15px;
   .comments__link {
+    cursor:pointer;
     @extend %gotham-book;
     font-size:10px;
     color:#999;
     @include transition(color .1s ease-in);
   }
   .comments__count {
+  }
+  .comments__listing {
+    display:none;
+  }
+}
+
+.post--featured {
+  .comments {
+    .comments__link {
+      display:none;
+    }
+    .comments__listing {
+      display:block;
+      float:left;
+      margin-top:1em;
+      @extend %gotham-book;
+      font-size:10px;
+      color:#999;
+    }
+    .comments__form {
+      display:block;
+    }
+  }
+  .comment {
+    border-top:1px solid #CCC;
+    float:left;
+    width:100%;
+    padding:1em 0;
+    &:first-child {
+      border:none;
+    }
+    .comment__emotion {
+      width:35px;
+      float:left;
+    }
+    .comment__content {
+      width:233px;
+      float:left;
+    }
+    .comment__body {
+      float:left;
+      clear:left;
+      width:100%;
+      margin-top:.25em;
+      line-height:1.5em;
+    }
+    .comment__info {
+      float:left;
+      clear:left;
+      width:100%;
+      margin-top:.75em;
+    }
+  }
+  .form--comment {
+    .form__faces {
+      margin-top:.5em;
+      margin-left:5px;
+      .face {
+        cursor:pointer;
+        margin-left:8px;
+        &:first-child {
+          margin-left:0;
+        }
+      }
+    }
+    @each $emotion in $emotions {
+      $verb: nth($emotion, 1);
+      $color: nth($emotion, 2);
+
+      &.form--#{$verb} {
+        .form__submit {
+          background: #{$color};
+          @include transition(background .1s ease-in-out);
+          cursor:pointer;
+        }
+      }
+    }
   }
 }
 

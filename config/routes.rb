@@ -1,9 +1,11 @@
 Www::Application.routes.draw do
 
-  root 'posts#new'
+  get "main/index"
+  root 'main#index'
 
   resources :posts do
     resources :comments
+    resources :votes
   end
 
 

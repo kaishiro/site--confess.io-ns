@@ -17,7 +17,7 @@
 //= require_tree .
 $(function() {
 
-
+  // Isotope Launcher
   $('.posts').isotope({
     itemSelector: '.post',
     containerClass: 'posts--isotope',
@@ -69,7 +69,7 @@ $(function() {
       $(".header").addClass("header--" + emotion);
     }
   }
-  
+
   function changeFormEmotion(emotion, placeholder) {
     // Remove existing emotions
     $(".form--post").removeClass(function() {
@@ -85,8 +85,8 @@ $(function() {
     // Add current emotion
     if (emotion) {
       $(".form--post").addClass("form--" + emotion);
-      $(".form__verb").val(emotion);
-      $(".form__body").attr("placeholder", placeholder);
+      $(".form--post .form__verb").val(emotion);
+      $(".form--post .form__body").attr("placeholder", placeholder);
     }
   }
 
@@ -116,7 +116,7 @@ $(function() {
     $(this).addClass('face--active');
   }
 
-  $(".face--normal").on("mouseover", function(){
+  $(".header .face--normal").on("mouseover", function(){
     var formIsActive = $(".page.active-form").length > 0; 
 
     if (formIsActive) {
@@ -129,7 +129,7 @@ $(function() {
     }
   });
 
-  $(".face--normal").on("mouseout", function(){
+  $(".header .face--normal").on("mouseout", function(){
     var formIsActive = $(".page.active-form").length > 0; 
 
     if (formIsActive) {
@@ -140,7 +140,7 @@ $(function() {
     }
   });
 
-  $(".face--normal").on("click", function(){
+  $(".header .face--normal").on("click", function(){
     var formIsActive = $(".page.active-form").length > 0; 
     var emotion = $(this).data('verb');
     var emotionOld = $(".page").data('verb');
@@ -181,8 +181,8 @@ $(function() {
     $('.feature').html("");
   });
 
-  $(".comments").on("click", function(){
-    var clone = $(this).parent().clone(); 
+  $(".comments .comments__link").on("click", function(){
+    var clone = $(this).parent().parent().clone(true, true); 
 
     activateOverlay(1);
 
@@ -194,6 +194,34 @@ $(function() {
 
     $('.feature').append(clone);
 
+  });
+  
+  $(".form--comment .face").on("click", function(){
+    var emotion = $(this).data('verb');
+
+    $(".form--comment").removeClass(function() {
+      var classes = "";
+
+      $.each(emotions, function( index, value ) {
+        classes += "form--" + value + " ";
+      });
+
+      return classes;
+    });
+
+    $(".form--comment").data('emotion', emotion);
+    $(".form--comment").attr('data-emotion', emotion);
+    $(".form--comment").addClass("form--" + emotion);
+
+    $(".form--comment .face").removeClass('face--active');
+    $(this).addClass('face--active');
+
+    $(".form--comment .form__verb").val(emotion);
+
+  });
+
+  $("#new_post").on("ajax:success", function(e, data, status, xhr) {
+    alert("OK");
   });
 
 });

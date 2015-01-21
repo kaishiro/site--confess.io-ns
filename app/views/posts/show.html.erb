@@ -11,13 +11,12 @@
   </div>
 
   <div class="posts">
-    <%- for post in @posts do %>
 
-      <div class="post post--<%= post.verb %>">
+    <div class="post post--<%= @post.verb %> post--<%= @post.id %>">
         <div class="post__triangle">
         </div>
         <div class="post__face">
-          <% case post.verb
+          <% case @post.verb
                when "anger" %>
             <%= render :partial => 'partials/faces/anger', :locals => {:size => 'small'} %>
             <% when "fear" %>
@@ -45,28 +44,28 @@
           </a>
         </div>
         <div class="post__body">
-          <%= post.body %>
+          <%= @post.body %>
         </div>
         <img class="post__image" src="http://placekitten.com/300/200" />
         <div class="post__info">
           <%= image_tag "flags_png/us.png", :class => "post__flag" %>
           <span class="post__country">USA</span>
-          <span class="post__timestamp"><%= time_ago_in_words(post.created_at) %> ago</span>
+          <span class="post__timestamp"><%= time_ago_in_words(@post.created_at) %> ago</span>
         </div>
         <div class="post__share share">
           <ul class="share__list">
             <li class="share__item share__item--twitter">
-              <a class="share__link" href="#" target="_blank">
+            <a class="share__link" href="http://twitter.com/share?url=<%= @post_url %>&text=<%= @post.body %> (<%= @post_url %>)" target="_blank">
                 <span class="share__icon icon-twitter"></span>
               </a>
             </li>
             <li class="share__item share__item--facebook">
-              <a class="share__link" href="#" target="_blank">
+            <a class="share__link" href="http://www.facebook.com/sharer.php?s=100&p[url]=<%= @post_url %>&p[images][0]=http://placekitten.com/300/200&p[title]=A Confession&p[summary]=<%= @post.body %>" target="_blank">
                 <span class="share__icon icon-facebook"></span>
               </a>
             </li>
             <li class="share__item share__item--email">
-              <a class="share__link" href="#" target="_blank">
+            <a class="share__link" href="mailto:?subject=A Confession&body=<%= @post.body %>" target="_blank">
                 <span class="share__icon icon-email"></span>
               </a>
             </li>
@@ -81,9 +80,9 @@
           <div class="comments__link">
             Comments <span class="comments__count">(231)</span>
           </div>
-          <div class="comments__form form form--comment">
-            <%= form_for :comment, url: comments_path do |f| %>
-              <%= f.hidden_field :verb, :class => "form__verb" %>
+          <div class="comments__form form form--comment" data-emotion>
+            <%= form_for([@post, @post.comments.build], :remote => true) do |f| %>
+              <%= f.hidden_field :emotion, :class => "form__verb" %>
               <%= f.text_area :body, :class => "form__body", :placeholder => "Comment" %>
               <div class="form__faces">
                 <%= render :partial => 'partials/faces/anger', :locals => {:size => 'normal'} %>
@@ -94,13 +93,46 @@
                 <%= render :partial => 'partials/faces/happiness', :locals => {:size => 'normal'} %>
                 <%= render :partial => 'partials/faces/contempt', :locals => {:size => 'normal'} %>
               </div>
-              <%= f.submit "Post", :class => "form__submit" %>
+              <%= f.submit "Comment", :class => "form__submit" %>
+            <% end %>
+          </div>
+          <div class="comments__listing">
+            <%- for comment in @comments do %>
+              <div class="comment">
+                <div class="comment__emotion">
+                <% case comment.emotion
+                     when "anger" %>
+                  <%= render :partial => 'partials/faces/anger', :locals => {:size => 'small'} %>
+                  <% when "fear" %>
+                  <%= render :partial => 'partials/faces/fear', :locals => {:size => 'small'} %>
+                  <% when "sadness" %>
+                  <%= render :partial => 'partials/faces/sadness', :locals => {:size => 'small'} %>
+                  <% when "surprise" %>
+                  <%= render :partial => 'partials/faces/surprise', :locals => {:size => 'small'} %>
+                  <% when "disgust" %>
+                  <%= render :partial => 'partials/faces/disgust', :locals => {:size => 'small'} %>
+                  <% when "happiness" %>
+                  <%= render :partial => 'partials/faces/happiness', :locals => {:size => 'small'} %>
+                  <% when "contempt" %>
+                  <%= render :partial => 'partials/faces/contempt', :locals => {:size => 'small'} %>
+                <% end %>
+                </div>
+                <div class="comment__content">
+                  <div class="comment__body">
+                    <%= comment.body %>
+                  </div>
+                  <div class="comment__info">
+                    <%= image_tag "flags_png/us.png", :class => "comment__flag" %>
+                    <span class="comment__country">USA</span>
+                    <span class="comment__timestamp"><%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago</span>
+                  </div>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
       </div>
 
-    <% end %>
   </div>
 
 </main>

@@ -13,7 +13,7 @@
   <div class="posts">
     <%- for post in @posts do %>
 
-      <div class="post post--<%= post.verb %>">
+      <div class="post post--<%= post.verb %> post--<%= post.id %>">
         <div class="post__triangle">
         </div>
         <div class="post__face">
@@ -36,11 +36,11 @@
         </div>
         <div class="post__voting">
           <a class="vote vote--up" href="#" data-vote="1">
-            <span class="vote__icon icon-up-dir"></span>
+            <%= render :partial => 'partials/voting/up' %>
             <span class="vote__count">47</span>
           </a>
           <a class="vote vote--down" href="#" data-vote="2">
-            <span class="vote__icon icon-down-dir"></span>
+            <%= render :partial => 'partials/voting/down' %>
             <span class="vote__count">2416</span>
           </a>
         </div>
@@ -82,10 +82,11 @@
             Comments <span class="comments__count">(231)</span>
           </div>
           <div class="comments__form form form--comment">
-            <%= form_for :comment, url: comments_path do |f| %>
+            <%= form_for :post, url: posts_path do |f| %>
               <%= f.hidden_field :verb, :class => "form__verb" %>
               <%= f.text_area :body, :class => "form__body", :placeholder => "Comment" %>
               <div class="form__faces">
+                <!--<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>-->
                 <%= render :partial => 'partials/faces/anger', :locals => {:size => 'normal'} %>
                 <%= render :partial => 'partials/faces/fear', :locals => {:size => 'normal'} %>
                 <%= render :partial => 'partials/faces/sadness', :locals => {:size => 'normal'} %>
@@ -95,6 +96,40 @@
                 <%= render :partial => 'partials/faces/contempt', :locals => {:size => 'normal'} %>
               </div>
               <%= f.submit "Post", :class => "form__submit" %>
+            <% end %>
+          </div>
+          <div class="comments__listing">
+            <%- for comment in post.comments do %>
+              <div class="comment">
+                <div class="comment__emotion">
+                <% case comment.emotion
+                     when "anger" %>
+                  <%= render :partial => 'partials/faces/anger', :locals => {:size => 'small'} %>
+                  <% when "fear" %>
+                  <%= render :partial => 'partials/faces/fear', :locals => {:size => 'small'} %>
+                  <% when "sadness" %>
+                  <%= render :partial => 'partials/faces/sadness', :locals => {:size => 'small'} %>
+                  <% when "surprise" %>
+                  <%= render :partial => 'partials/faces/surprise', :locals => {:size => 'small'} %>
+                  <% when "disgust" %>
+                  <%= render :partial => 'partials/faces/disgust', :locals => {:size => 'small'} %>
+                  <% when "happiness" %>
+                  <%= render :partial => 'partials/faces/happiness', :locals => {:size => 'small'} %>
+                  <% when "contempt" %>
+                  <%= render :partial => 'partials/faces/contempt', :locals => {:size => 'small'} %>
+                <% end %>
+                </div>
+                <div class="comment__content">
+                  <div class="comment__body">
+                    <%= comment.body %>
+                  </div>
+                  <div class="comment__info">
+                    <%= image_tag "flags_png/us.png", :class => "comment__flag" %>
+                    <span class="comment__country">USA</span>
+                    <span class="comment__timestamp"><%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago</span>
+                  </div>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
